@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:week_3_blabla_project/model/componet/bla_button_model.dart';
+import 'package:week_3_blabla_project/screens/ride_screen/ride_screen.dart';
 import 'package:week_3_blabla_project/screens/test_screens/widgets/bla_button.dart';
 import 'package:week_3_blabla_project/utils/date_time_util.dart';
 import 'package:week_3_blabla_project/widgets/inputs/ride_form_fields.dart';
@@ -107,18 +108,23 @@ class _RidePrefFormState extends State<RidePrefForm> {
   }
 
   void _handleSearch() {
-    if (_validateForm()) {
-      final ridePref = RidePref(
-        departure: departure!,
-        arrival: arrival!,
-        departureDate: departureDate,
-        requestedSeats: requestedSeats,
-      );
-      
-      // Return the created ridePref or navigate to results
-      Navigator.pop(context, ridePref);
-    }
+  if (_validateForm()) {
+    final ridePref = RidePref(
+      departure: departure!,
+      arrival: arrival!,
+      departureDate: departureDate,
+      requestedSeats: requestedSeats,
+    );
+    // Navigate to the RidesScreen with ridePref as an argument
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RidesScreen(ridePref: ridePref),
+      ),
+    );
   }
+}
+
 
   // Handle switch location action
 void _switchLocations() {
