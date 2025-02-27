@@ -4,17 +4,16 @@ import 'package:week_3_blabla_project/theme/theme.dart';
 import 'package:week_3_blabla_project/model/componet/bla_button_model.dart';
 import 'package:week_3_blabla_project/screens/test_screens/widgets/bla_button.dart';
 import 'package:week_3_blabla_project/model/ride/locations.dart';
+import 'package:week_3_blabla_project/utils/animations_util.dart';
 
 class RideFormFields {
   // Navigate to the LocationPicker screen
-  void navigateToLocationPicker(
+   void navigateToLocationPicker(
       BuildContext context, Function(Location) onLocationSelected) async {
     final selectedLocation = await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => LocationPicker(
-          onLocationSelected: onLocationSelected,
-        ),
+      AnimationUtils.createBottomToTopRoute(
+        LocationPicker(onLocationSelected: onLocationSelected),
       ),
     );
 
