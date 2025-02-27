@@ -53,6 +53,8 @@ class BlaTextStyles {
   static TextStyle label =  TextStyle(fontSize: 13, fontWeight: FontWeight.w400);
 
   static TextStyle button =  TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+
+  static var caption;
 }
 
 
